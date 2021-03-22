@@ -1,12 +1,12 @@
 ![SEChat_logo](https://user-images.githubusercontent.com/31349569/111941576-4a754580-8b0c-11eb-83a4-4d0c2c37cd79.png)
 
-一款用GMS2编写的P2P聊天工具。即时聊天、文件、图片、音乐播放与加密传输。
+一款用 GMS2 编写的 p2p 聊天工具。即时聊天、文件、图片、音乐播放与加密传输。
 
 
 <!--more-->
 
 # 简介
-一款个人因学习GMS2用途兴趣使然编写的p2p聊天工具。
+个人因学习 GMS2 用途兴趣使然编写的 p2p 聊天工具。
 
 ![screenshot](https://user-images.githubusercontent.com/31349569/111941881-09316580-8b0d-11eb-89a1-b05aaa79db5d.png)
 
