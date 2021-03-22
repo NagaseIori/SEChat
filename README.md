@@ -75,3 +75,7 @@ Background Blur Amount 修改背景图片模糊量。值越高模糊半径越高
 
 # 警告
 你应只与你信任的人使用该工具。该工具未对聊天双方传输的文件作任何限制。音乐文件收到后会立即播放，而相关设置还没做好。
+
+# 使用/修改的项目
+**FMODGMS by mstop4**
+https://github.com/mstop4/FMODGMS
