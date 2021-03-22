@@ -31,10 +31,6 @@
 * 高 fps 下的高CPU占用
 * 不太安全的数据加密算法（RC4 with RSA）
 * 目前只支持 Windows
-* 无意义的部分设置
-* 大量工地英语
-* 暂不开源，代码太烂
-* 还没有理清用了哪些项目，之后补上
 * 没做完
 
 # 使用方法
@@ -81,6 +77,7 @@ Background Blur Amount 修改背景图片模糊量。值越高模糊半径越高
 # BUG相关
 请将崩溃时的日志记录并提 issue 来进行反馈。
 
-# 使用/修改的项目
+# 使用/修改的项目（不完全）
+
 **FMODGMS by mstop4**
 https://github.com/mstop4/FMODGMS
