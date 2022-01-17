@@ -1,0 +1,98 @@
+Converting GML script: bignumber_init.gml
+Converted description /// @description bignumber_init()
+
+Converting GML script: ${project_dir}\scripts\string_to_list\string_to_list.gml
+Converted description /// @description string_to_list(string[,n])/// @param string[
+/// @param n]
+
+Converting GML script: ${project_dir}\scripts\string_to_array\string_to_array.gml
+Converted description /// @description string_to_array(string[,n])/// @param string[
+/// @param n]
+
+Converting GML script: ${project_dir}\scripts\string_to_real_array\string_to_real_array.gml
+Converted description /// @description string_to_real_array(string[,n])/// @param string[
+/// @param n]
+
+Converting GML script: ${project_dir}\scripts\sub\sub.gml
+Converted description /// @description sub(bignumber, amount)/// @param bignumber
+/// @param  amount
+
+Converting GML script: ${project_dir}\scripts\_array_add\_array_add.gml
+Converted description /// @description _array_add(array1,array2,radix)/// @param array1
+/// @param array2
+/// @param radix
+
+Converting GML script: ${project_dir}\scripts\array_reverse\array_reverse.gml
+Converted description /// @description array_reverse(array)/// @param array
+
+Converting GML script: ${project_dir}\scripts\array\array.gml
+Converted description /// @description array(element,element,...)/// @param element
+/// @param element
+/// @param ...
+
+Converting GML script: ${project_dir}\scripts\_array_sub\_array_sub.gml
+Error: variable 'array_pop' has same name as a built-in (function, constant or variable), it must be renamed to function correctly
+Converted description /// @description _array_sub(array1,array2,radix)/// @param array1
+/// @param array2
+/// @param radix
+
+Converting GML script: ${project_dir}\scripts\array_pop\array_pop.gml
+Converted description /// @description array_pop(array[,pos])/// @param array[
+/// @param pos]
+
+Converting GML script: ${project_dir}\scripts\_ensure_numberstring\_ensure_numberstring.gml
+Converted description /// @description _ensure_numberstring(value)/// @param value
+
+Converting GML script: ${project_dir}\scripts\bignumber_is_positive\bignumber_is_positive.gml
+Converted description /// @description bignumber_is_positive(s)/// @param s
+
+Converting GML script: ${project_dir}\scripts\alphabet_to_numeric\alphabet_to_numeric.gml
+Converted description /// @description alphabet_to_numeric(char)/// @param char
+
+Converting GML script: ${project_dir}\scripts\numeric_to_alphabet\numeric_to_alphabet.gml
+Converted description /// @description numeric_to_alphabet(i)/// @param i
+
+Converting GML script: ${project_dir}\scripts\string_to_radixval_array\string_to_radixval_array.gml
+Converted description /// @description string_to_radixval_array(s)/// @param s
+
+Converting GML script: ${project_dir}\scripts\array_radixval_to_string\array_radixval_to_string.gml
+Converted description /// @description array_radixval_to_string(array[, glue])/// @param array[
+/// @param  glue]
+
+Converting GML script: ${project_dir}\scripts\ds_list_implode\ds_list_implode.gml
+Converted description /// @description ds_list_implode(list[, glue])/// @param list[
+/// @param  glue]
+
+Converting GML script: ${project_dir}\scripts\array_implode\array_implode.gml
+Converted description /// @description array_implode(array[, glue])/// @param array[
+/// @param  glue]
+
+Converting GML script: ${project_dir}\scripts\add\add.gml
+Converted description /// @description add(number1, number2,...)/// @param number1
+/// @param  number2
+/// @param ...
+
+Converting GML script: ${project_dir}\scripts\mult\mult.gml
+Converted description /// @description mult(bignumber, integer)/// @param bignumber
+/// @param  integer
+
+Converting GML script: ${project_dir}\scripts\bignumber_a_greaterthan_b\bignumber_a_greaterthan_b.gml
+Converted description /// @description bignumber_a_greaterthan_b(a,b)/// @param a
+/// @param b
+
+Converting GML script: ${project_dir}\scripts\bignumber_format\bignumber_format.gml
+Converted description /// @description bignumber_format(bignumber[, precision])/// @param bignumber[
+/// @param  precision]
+
+Converting GML script: ${project_dir}\scripts\math_set_radix\math_set_radix.gml
+Converted description /// @description math_set_radix(n)/// @param n
+
+Converting GML script: ${project_dir}\scripts\math_set_alphabet\math_set_alphabet.gml
+Converted description /// @description math_set_alphabet(string)/// @param string
+
+Converting GML script: ${project_dir}\scripts\math_setup_dictionary\math_setup_dictionary.gml
+Error: variable 'ds_list_set' has same name as a built-in (function, constant or variable), it must be renamed to function correctly
+Converted description /// @description math_setup_dictionary()
+
+Converting GML script: ${project_dir}\scripts\math_dictionary_find_name\math_dictionary_find_name.gml
+Converted description /// @description math_dictionary_find_name(digitcount)/// @param digitcount
