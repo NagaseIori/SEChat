@@ -62,6 +62,7 @@
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},"order":10,},
     {"id":{"name":"shd_gaussian_blur","path":"shaders/shd_gaussian_blur/shd_gaussian_blur.yy",},"order":8,},
     {"id":{"name":"send_file","path":"scripts/send_file/send_file.yy",},"order":10,},
+    {"id":{"name":"FMODGMS License","path":"notes/FMODGMS License/FMODGMS License.yy",},"order":3,},
     {"id":{"name":"rm_example","path":"rooms/rm_example/rm_example.yy",},"order":0,},
     {"id":{"name":"socket_file_requ","path":"scripts/socket_file_requ/socket_file_requ.yy",},"order":12,},
     {"id":{"name":"chat_music","path":"scripts/chat_music/chat_music.yy",},"order":37,},
