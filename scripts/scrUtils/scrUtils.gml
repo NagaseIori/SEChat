@@ -23,3 +23,20 @@ function dec_to_hex(argument0) {
     }
     return hex;
 }
+
+function map_ifload(_map, _key, _val){
+	if(ds_map_exists(_map, _key))
+		return _map[? _key];
+	return _val;
+}
+
+function rainbow_judge(_str){
+	if(string_count("NEO", _str)==2 && string_count("SKY", _str)==1 && string_count("MAP", _str)==1)
+		return 1;
+	if(string_count("虹色", _str)==1 && (string_count("Passions", _str)==1 || string_count("passions", _str)==1))
+		return 1;
+}
+
+function iff(argument0, argument1, argument2) {
+	if argument0 return argument1 return argument2
+}

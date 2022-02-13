@@ -1,5 +1,11 @@
+/*
+    scrSocket
+    Core of the socket things..
+*/
 
-///@desc Key part of sending messages. Send the message through socket.
+
+
+///@description Key part of sending messages. Send the message through socket.
 function socket_msg(_str, _sock){
 	var temp_map = ds_map_create();
 	temp_map[? "type"] = "text";
@@ -14,7 +20,7 @@ function socket_msg(_str, _sock){
 	return res;
 }
 
-///@desc Key part of receiving messages.
+///@description Key part of receiving messages.
 function socket_msg_read(_buffer, _size) {
 	
 	var _rc4 = buffer_read(_buffer, buffer_u8);
@@ -126,7 +132,7 @@ function socket_msg_read(_buffer, _size) {
 	ds_map_destroy(_map);
 }
 
-///@desc Send file through socket.
+///@description Send file through socket.
 function socket_file(_sock, _filename, _fileid, _buff, _size, _pos){
 	var t_buff = buffer_create(objSent.tbuff_siz+256, buffer_fixed, 1);
 	buffer_write(t_buff, buffer_u8, 3);
@@ -144,7 +150,7 @@ function socket_file(_sock, _filename, _fileid, _buff, _size, _pos){
 	return res;
 }
 
-///@desc Send file tranferring progress through socket.
+///@description Send file tranferring progress through socket.
 function socket_file_prog(_sock, _fileid, _size, _status){
 	var temp_map = ds_map_create();
 	temp_map[? "type"] = "fileprog";
@@ -159,7 +165,7 @@ function socket_file_prog(_sock, _fileid, _size, _status){
 	return res;
 }
 
-///@desc Send file transfer request through socket.
+///@description Send file transfer request through socket.
 function socket_file_requ(_sock, _fileid, _size, _filename){
 	var temp_map = ds_map_create();
 	temp_map[? "type"] = "filerequ";
@@ -175,7 +181,7 @@ function socket_file_requ(_sock, _fileid, _size, _filename){
 	return res;
 }
 
-///@desc Send small image through socket.
+///@description Send small image through socket.
 function socket_img(_str, _sock){
 	var temp_map = ds_map_create();
 	temp_map[? "type"] = "image";
@@ -203,7 +209,7 @@ function socket_img(_str, _sock){
 	return res;
 }
 
-///@desc Send public key through socket.
+///@description Send public key through socket.
 function socket_key(_sock){
 	var temp_map = ds_map_create();
 	temp_map[? "type"] = "key";
@@ -217,7 +223,7 @@ function socket_key(_sock){
 	return res;
 }
 
-///@desc Send UUID through socket.
+///@description Send UUID through socket.
 function socket_upd_key(_sock){
 	var null_m = ds_map_create();
 	null_m[? "type"] = "UUID";
@@ -226,7 +232,7 @@ function socket_upd_key(_sock){
 	ds_map_destroy(null_m);
 }
 
-///@desc Send the defined GMS2 map package as buffer through socket.
+///@description Send the defined GMS2 map package as buffer through socket.
 function socket_map(_sock, temp_map, _rc4){
 	if(!rsa_check()) {
 		chat_msg("System: 未检测到 RSA 密钥文件。请断开连接后重新生成密钥。");
@@ -264,7 +270,7 @@ function socket_map(_sock, temp_map, _rc4){
 	return res; 
 }
 
-///@desc Send the socket disconnection request through socket.
+///@description Send the socket disconnection request through socket.
 function socket_disconnect(_sock){
 	var _map = ds_map_create();
 	_map[? "type"] = "disconnect";
