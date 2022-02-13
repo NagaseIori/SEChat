@@ -3,13 +3,15 @@
 
 draw_surface(surf, x, y);
 
-draw_set_font(fZpix14);
-draw_set_color(global.fr_col);
-draw_set_alpha(1.0);
+var text = "> "+msg_now;
 
-if(global.Focusing == 0)
-	draw_text(x, y+650, "> "+msg_now+cursor);
-else
-	draw_text(x, y+650, "> "+msg_now);
+if(global.Focusing == 0) {
+	text += cursor;
+}
+
+scribble(text)
+.blend(global.fr_col, 1.0)
+.align(fa_left, fa_top)
+.draw(x, y+650);
 
 draw_reset();
