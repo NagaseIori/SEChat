@@ -6,10 +6,12 @@
 
 <!--more-->
 
-# 简介
+## 简介
+
 个人因学习 GMS2 用途兴趣使然编写的端到端加密聊天工具。
 
-### 特性
+## 特性
+
 * 无需经过服务器，端到端加密的即时聊天工具（局域网、公网访问或内网映射）
 * 无损图片传输，可修改/自适应图片预览大小（支持 jpeg、png 等常见图片格式）
 * 文件传输与音乐播放（支持 mp3、flac 等常见音乐格式）
@@ -21,7 +23,11 @@
 * 设置保留
 * 可调整帧率
 
-# 其它项目
+## 使用的项目 & 感谢
 
 **FMODGMS by mstop4**
 https://github.com/mstop4/FMODGMS
+
+**Default background image comes from イコモチ's excellent work: *シオとミツ***
+Artwork page: https://www.pixiv.net/artworks/82932882
+Artist homepage: https://www.pixiv.net/users/801146

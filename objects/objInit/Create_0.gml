@@ -1,5 +1,6 @@
+room_speed = 120;
 global.m_bar = ds_map_create();
-global.user_name = "-";
+global.user_name = "NagaseIori";
 global.local_port = 1234;
 global.client = undefined;
 global.m_file = ds_map_create();
@@ -12,18 +13,18 @@ global.serv_port = "";
 global.serv_addr = "";
 global.wheel_speed = 1;
 global.bg_col = $000000
-global.fr_col = $00DB00
-global.bg_radius = 0;
-global.bg_type = 0;
-global.bg_img_file = "";
+global.fr_col = $000000
+global.bg_radius = 10;
+global.bg_type = 1;
+global.bg_img_file = "background.png";
 global.fmod_state = 1;
 global.img_lines = 10;
 
 load_settings();
 
-window_set_caption("SEChat Alpha v210303");
+window_set_caption("SEChat Alpha v220213 SNAPSHOT");
 
-// Directory Init
+// Create Downloads Directory
 if(!directory_exists(program_directory + "Downloads"))
 	directory_create(program_directory + "Downloads");
 
