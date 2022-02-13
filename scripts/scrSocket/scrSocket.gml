@@ -3,7 +3,15 @@
     Core of the socket things..
 */
 
-
+///@description Check the socket is client's or server's
+function available_socket(){
+	if(global.client != undefined)
+		return global.client;
+	else if(instance_exists(objClient))
+		return objClient.client_sock;
+	else
+		return -1;
+}
 
 ///@description Key part of sending messages. Send the message through socket.
 function socket_msg(_str, _sock){

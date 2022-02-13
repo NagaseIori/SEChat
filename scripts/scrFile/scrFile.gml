@@ -46,3 +46,4 @@ function recv_file(_fileid, _size, _filename, _username){
 			show_error("FILE OPEN FAILED."+string(inst.buffer), true);
 	}
 }
+
