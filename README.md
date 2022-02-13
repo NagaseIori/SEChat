@@ -29,5 +29,7 @@
 https://github.com/mstop4/FMODGMS
 
 **Default background image comes from イコモチ's excellent work: *シオとミツ***
+
 Artwork page: https://www.pixiv.net/artworks/82932882
+
 Artist homepage: https://www.pixiv.net/users/801146
