@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description 
 
 if(async_load[? "id"]==client_sock) {
 	switch(async_load[? "type"]) {

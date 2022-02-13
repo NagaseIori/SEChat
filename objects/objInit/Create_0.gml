@@ -1,5 +1,6 @@
 
 #macro STD_FPS 120
+#macro CN_FONT "fZpix14"
 
 room_speed = STD_FPS;
 global.m_bar = ds_map_create();
@@ -55,7 +56,7 @@ else {
 }
 
 // Font init
-scribble_font_set_default("fZpix14");
+scribble_font_set_default(CN_FONT);
 
 room_goto(Room1);
 

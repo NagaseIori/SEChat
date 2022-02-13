@@ -10,7 +10,7 @@ if(global.Focusing == 0) {
 }
 
 scribble(text)
-.blend(global.fr_col, 1.0)
+.starting_format(CN_FONT, global.fr_col)
 .align(fa_left, fa_top)
 .draw(x, y+650);
 

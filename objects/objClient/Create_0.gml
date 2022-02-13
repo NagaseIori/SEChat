@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description 
 
 ip = global.m_bar[? "Server Address"].contains;
 port = global.m_bar[? "Server Port"].contains;
