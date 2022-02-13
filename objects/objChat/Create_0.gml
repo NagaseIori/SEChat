@@ -9,6 +9,8 @@ spr_line[0] = undefined;
 num_line[0] = undefined;
 file_line[0] = undefined;
 
+aim_below = 0;
+lerp_spd = 0.1;
 below = 0;
 sep = 20;
 img_line = 26;
@@ -51,4 +53,4 @@ file_dnd_allowfiles = true;
 file_dnd_allowdirs = false;
 
 // allow dnd of multiple items?
-file_dnd_allowmulti = false;
+file_dnd_allowmulti = true;

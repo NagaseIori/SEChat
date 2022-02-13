@@ -1,5 +1,4 @@
 /// @description Load Image
-// You can write your code in this editor
 var _nspr = sprite_add(global.bg_img_file, 1, 0, 0, 0, 0);
 if(_nspr<0) {
 	chat_msg("[ERROR] 背景图片文件读取失败！");

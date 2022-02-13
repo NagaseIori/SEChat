@@ -1,3 +1,3 @@
 /// @description 
 
-below -= min(below, screen_lines-1);
+aim_below -= min(aim_below, screen_lines-1);

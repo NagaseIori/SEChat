@@ -21,11 +21,11 @@ else {
 
 	client_sock = network_create_socket(network_socket_tcp);
 	if(network_connect(client_sock, ip, port)<0) {
-		chat_msg("System: 服务器连接超时。请检查地址，端口，防火墙设置后重试。");
+		chat_msg("System: [c_red]服务器连接超时。请检查地址，端口，防火墙设置后重试。[/c]");
 		instance_destroy();
 	}
 	else {
-		chat_msg("System: 已连接服务器。(IP: "+ip+")");
+		chat_msg("System: [c_green]已连接服务器。(IP: "+ip+")[/c]");
 		socket_key(client_sock);
 	}
 }

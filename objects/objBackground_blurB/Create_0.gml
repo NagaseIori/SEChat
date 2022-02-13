@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 
 type = 0 // 0 color 1 image
 image_spr = undefined;

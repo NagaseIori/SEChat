@@ -1,5 +1,3 @@
-  /// @description Insert description here
-// You can write your code in this editor
 
 switch(async_load[? "type"]) {
 	case network_type_connect:

@@ -1,3 +1,3 @@
 /// @description 
 
-if(below>0) below--;
+if(aim_below>0) aim_below--;

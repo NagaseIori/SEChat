@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 
 var n_barid, foc=global.Focusing;
 

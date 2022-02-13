@@ -32,12 +32,12 @@ function rsa_decrypt(_buff){
 	}
 	
 	// openssl rsautl -decrypt -in input.file -inkey key.pem -out output.file
-	 show_debug_message(add_quote(_exedir) + "rsautl -decrypt -in "+
+	 //show_debug_message(add_quote(_exedir) + "rsautl -decrypt -in "+
+		// 			add_quote(_input) + "-inkey " + add_quote(_key) + "-out " +
+		// 			add_quote(_output));
+	execute_program(add_quote(_exedir) + "rsautl -decrypt -in "+
 					add_quote(_input) + "-inkey " + add_quote(_key) + "-out " +
-					add_quote(_output));
-	execute_shell(add_quote(_exedir) + "rsautl -decrypt -in "+
-					add_quote(_input) + "-inkey " + add_quote(_key) + "-out " +
-					add_quote(_output), true);
+					add_quote(_output), "", true);
 	
 	if(!file_exists(_output)) {
 		show_error("System: RSA DECRYPTION FAILED."+string(buffer_get_size(_buff)), true);
@@ -67,9 +67,9 @@ function rsa_encrypt(_buff, _pubfile){
 	 show_debug_message(add_quote(_exedir) + "rsautl -encrypt -in "+
 					add_quote(_input) + "-inkey " + add_quote(_pubkey) + "-pubin -out " +
 					add_quote(_output));
-	execute_shell(add_quote(_exedir) + "rsautl -encrypt -in "+
+	execute_program(add_quote(_exedir) + "rsautl -encrypt -in "+
 					add_quote(_input) + "-inkey " + add_quote(_pubkey) + "-pubin -out " +
-					add_quote(_output), true);
+					add_quote(_output), "", true);
 	
 	if(!file_exists(_output)) {
 		show_error("System: RSA ENCRYPTION FAILED.", true);
@@ -91,11 +91,12 @@ function rsa_generate_key(_bit) {
 		chat_msg("System: [Error] 未断开连接，无法更新RSA密钥。");
 		return;
 	}
-	var _exedir = working_directory + "openssl_x86\\bin\\openssl.exe";
+	// var _exedir = working_directory + "openssl_x86\\bin\\openssl.exe";
+	var _exedir = "openssl_x86\\bin\\openssl.exe";
 	var _output = working_directory + "key.pem";
 	var _puboutput = working_directory + "pub.pem";
-	execute_shell("\""+_exedir+"\" genrsa -out \""+_output+"\" "+string(_bit), true);
-	execute_shell("\""+_exedir+"\" rsa -in \""+_output+"\" -pubout -out \""+ _puboutput + "\"", true);
+	execute_program(_exedir, "genrsa -out \""+_output+"\" "+string(_bit), true);
+	execute_program(_exedir, "rsa -in \""+_output+"\" -pubout -out \""+ _puboutput + "\"", true);
 	if(file_exists(_output) && file_exists(_puboutput))
 		chat_msg("System: RSA 密钥已生成。");
 	else

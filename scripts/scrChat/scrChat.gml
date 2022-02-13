@@ -18,8 +18,9 @@ function chat_img(_str, _spr){
 	
 	objChat.spr_line[objChat.tot_line] = compress_sprite(_spr, _gscale);
 	objChat.num_line[objChat.tot_line] = _rline;
-	objChat.tot_line+=1+_rline;
-	objChat.below = 0;
+	objChat.tot_line += 1+_rline;
+	objChat.aim_below = 0;
+	objChat.below += 1+_rline;
 	audio_play_sound(sndText, 1, 0);
 }
 
@@ -36,7 +37,8 @@ function chat_msg(_str){
 	objChat.type_line[objChat.tot_line] = "text";
 	objChat.spr_line[objChat.tot_line] = undefined;
 	objChat.tot_line++;
-	objChat.below = 0;
+	objChat.below += 1;
+	objChat.aim_below = 0;
 	audio_play_sound(sndText, 1, 0);
 }
 
@@ -50,7 +52,8 @@ function chat_file(_str, _id, _type){
 	objChat.num_line[objChat.tot_line] = _type; // "sent" or "recv"
 	objChat.file_line[objChat.tot_line] = shorten_name(_id.file_name, 20);
 	objChat.tot_line+=2;
-	objChat.below = 0;
+	objChat.aim_below = 0;
+	objChat.below += 2;
 	audio_play_sound(sndText, 1, 0);
 }
 
@@ -75,6 +78,7 @@ function chat_music(_str, _file, _autoplay){
 	objChat.spr_line[objChat.tot_line] = _inst;
 	objChat.num_line[objChat.tot_line] = _rline;
 	objChat.tot_line+=_rline;
-	objChat.below = 0;
+	objChat.aim_below = 0;
+	objChat.below += _rline;
 	audio_play_sound(sndText, 1, 0);
 }

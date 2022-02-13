@@ -201,7 +201,8 @@ function rc4_buff(_a, _b, _c, _d){
 }
 
 function random_string(_length) {
-	var dict = "012345678ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*!@#$%^&()_+-=[]{}:;,.<>?/";
+	randomize();
+	var dict = "012345678ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	var length = string_length(dict);
 	var ret = "";
 	repeat (_length)
@@ -230,4 +231,28 @@ function shift_hue() {
 	    hue_shift = (hue_shift + argument[0]) mod 256;
 	    draw_set_color(make_color_hsv((hue+hue_shift) mod 256,128,255));
 	}
+}
+
+// by @yellowafterlife
+function string_split(_string, _delimiter) {
+	var s = argument[0], d = argument[1];
+	
+	if(!variable_global_exists("string_split_list"))
+		global.string_split_list = ds_list_create();
+	
+	var rl = global.string_split_list;
+	var p = string_pos(d, s), o = 1;
+	var dl = string_length(d);
+	ds_list_clear(rl);
+	if (dl) while (p) {
+	    ds_list_add(rl, string_copy(s, o, p - o));
+	    o = p + dl;
+	    p = string_pos_ext(d, s, o);
+	}
+	ds_list_add(rl, string_delete(s, 1, o - 1));
+	// create an array and store results:
+	var rn = ds_list_size(rl);
+	var rw = array_create(rn);
+	for (p = 0; p < rn; p++) rw[p] = rl[|p];
+	return rw;
 }
