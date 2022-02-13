@@ -243,6 +243,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/openssl_x86/lib/engines-1_1","resourceVersion":"1.0","name":"capi.pdb","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/openssl_x86/lib/engines-1_1","resourceVersion":"1.0","name":"padlock.dll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/openssl_x86/lib/engines-1_1","resourceVersion":"1.0","name":"padlock.pdb","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"background.png","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2022.1.1.610",
