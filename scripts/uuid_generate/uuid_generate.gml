@@ -14,9 +14,4 @@ function uuid_generate() {
 	uuid[12] = "4";
 
 	return uuid_array_implode(uuid);
-
-
-
-
-
 }

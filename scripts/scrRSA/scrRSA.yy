@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "socket_upd_key",
+  "name": "scrRSA",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -17,9 +17,4 @@ function uuid_array_implode(argument0) {
 	repeat 12 s += a[i++];
 
 	return s;
-
-
-
-
-
 }
