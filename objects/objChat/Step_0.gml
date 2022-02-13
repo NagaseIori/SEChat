@@ -76,22 +76,25 @@ surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
 
 var i = max(tot_line-screen_lines-below, 0), j = 14, nsep = sep, mi = i+min(tot_line, screen_lines);
-draw_set_font(fZpix14);
-draw_set_color(global.fr_col);
-draw_set_alpha(1.0);
-draw_set_valign(fa_center);
-draw_set_halign(fa_left);
+// draw_set_font(fZpix14);
+// draw_set_color(global.fr_col);
+// draw_set_alpha(1.0);
+// draw_set_valign(fa_center);
+// draw_set_halign(fa_left);
 type_line[tot_line] = undefined;
 
 while(i<mi) {
+	var _text = "";
 	switch(type_line[i]) {
 		case "text":
-			draw_text(0, j, show_hash ? hash_line[i] : msg_line[i]);
+			// draw_text(0, j, show_hash ? hash_line[i] : msg_line[i]);
+			_text = show_hash ? hash_line[i] : msg_line[i];
 			j+=nsep;
 			i++;
 			break;
 		case "image":
-			draw_text(0, j, msg_line[i]);
+			// draw_text(0, j, msg_line[i]);
+			_text = msg_line[i];
 			j+=nsep;
 			draw_sprite(spr_line[i], 0, 0, j);
 			j+=nsep*num_line[i];
@@ -99,7 +102,8 @@ while(i<mi) {
 			break;
 		case "music":
 			var _inst = spr_line[i];
-			draw_text(0, j, msg_line[i]);
+			// draw_text(0, j, msg_line[i]);
+			_text = msg_line[i];
 			j+=nsep;
 			_inst.x = x;
 			_inst.y = j+y;
@@ -117,7 +121,8 @@ while(i<mi) {
 				if(instance_exists(_inst)) {
 					var _spd = " (SPD. "+string(_inst.est_spd/1024/1024)+"MB/s)";
 					var _siz = " (SIZ. "+string(_inst.recv_pos/1024/1024)+"/"+string(_inst.recv_siz/1024/1024)+"MB)";
-					draw_text(0, j, msg_line[i]+" 接收文件 "+file_line[i]+_spd+_siz);
+					// draw_text(0, j, msg_line[i]+" 接收文件 "+file_line[i]+_spd+_siz);
+					_text = msg_line[i]+" 接收文件 "+file_line[i]+_spd+_siz;
 					//draw_text(0, j+nsep, ascii_prog(_inst.recv_pos/_inst.recv_siz, _bar_length));
 					draw_set_alpha(0.6);
 					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
@@ -125,7 +130,8 @@ while(i<mi) {
 					draw_rectangle(0, k, _bar_length*_inst.recv_pos/_inst.recv_siz, k+_bar_height, false);
 				}
 				else {
-					draw_text(0, j, msg_line[i]+" 文件 "+file_line[i]+" 接收完毕。");
+					// draw_text(0, j, msg_line[i]+" 文件 "+file_line[i]+" 接收完毕。");
+					_text = msg_line[i]+" 文件 "+file_line[i]+" 接收完毕。"
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
 					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
 				}
@@ -134,7 +140,8 @@ while(i<mi) {
 				if(instance_exists(_inst)) {
 					var _spd = " (SPD. "+string(_inst.est_spd/1024/1024)+"MB/s)";
 					var _siz = " (SIZ. "+string(_inst.sent_pos/1024/1024)+"/"+string(_inst.buff_siz/1024/1024)+"MB)";
-					draw_text(0, j, msg_line[i]+" 发送文件 "+file_line[i]+_spd+_siz);
+					// draw_text(0, j, msg_line[i]+" 发送文件 "+file_line[i]+_spd+_siz);
+					_text = msg_line[i]+" 发送文件 "+file_line[i]+_spd+_siz;
 					//draw_text(0, j+nsep, ascii_prog(_inst.sent_pos/_inst.buff_siz, _bar_length));
 					draw_set_alpha(0.6);
 					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
@@ -142,7 +149,8 @@ while(i<mi) {
 					draw_rectangle(0, k, _bar_length*_inst.sent_pos/_inst.buff_siz, k+_bar_height, false);
 				}
 				else {
-					draw_text(0, j, msg_line[i]+" 文件 "+file_line[i]+" 发送完毕。");
+					// draw_text(0, j, msg_line[i]+" 文件 "+file_line[i]+" 发送完毕。");
+					_text = msg_line[i]+" 文件 "+file_line[i]+" 发送完毕。";
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
 					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
 				}
@@ -155,6 +163,12 @@ while(i<mi) {
 			j-=nsep;
 			break;
 	}
+	
+	// Draw the text
+	scribble(_text)
+	.blend(global.fr_col, 1.0)
+	.align(fa_left, fa_center)
+	.draw(0, j);
 }
 
 draw_reset();

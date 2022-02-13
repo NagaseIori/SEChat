@@ -1,4 +1,7 @@
-room_speed = 120;
+
+#macro STD_FPS 120
+
+room_speed = STD_FPS;
 global.m_bar = ds_map_create();
 global.user_name = "NagaseIori";
 global.local_port = 1234;
@@ -11,7 +14,7 @@ global.UUID = uuid_generate();
 global.cli_UUID = "";
 global.serv_port = "";
 global.serv_addr = "";
-global.wheel_speed = 1;
+global.wheel_speed = 5;
 global.bg_col = $000000
 global.fr_col = $000000
 global.bg_radius = 10;
@@ -50,6 +53,9 @@ else {
 	global.fmod_is_paused = false;
 	global.fmod_sound_index = -1;
 }
+
+// Font init
+scribble_font_set_default("fZpix14");
 
 room_goto(Room1);
 

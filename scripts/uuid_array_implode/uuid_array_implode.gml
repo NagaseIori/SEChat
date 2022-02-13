@@ -1,6 +1,6 @@
 /// @description uuid_array_implode()
 function uuid_array_implode(argument0) {
-	var s = "", i=0, sl = array_length_1d(argument0), a = argument0, sep = "-";
+	var s = "", i=0, a = argument0, sep = "-";
 
 	repeat 8 s += a[i++];
 	s += sep;
