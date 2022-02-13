@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description 
 
 if(available_socket()<0) {
 	chat_msg("System: 连接中断。文件传输终止。");

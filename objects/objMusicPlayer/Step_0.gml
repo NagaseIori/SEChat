@@ -21,7 +21,7 @@ surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
 draw_set_color(global.fr_col);
 draw_set_halign(fa_left)
-draw_set_valign(fa_center);
+draw_set_valign(fa_middle);
 draw_set_font(fZpix14);
 draw_set_alpha(1.0);
 

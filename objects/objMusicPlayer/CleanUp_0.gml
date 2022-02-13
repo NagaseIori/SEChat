@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description 
 
 if(sound_index == global.fmod_sound_index && global.fmod_is_playing) {
 	fmod_stopchan();

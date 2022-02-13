@@ -1,7 +1,7 @@
-/// @description Resend Data
-// You can write your code in this editor
+/// @description 
 
 pos = sent_pos
 bfile_seek(buff, pos);
 
-//chat_msg("RESENDING");
+if(debug_mode)
+	show_debug_message("RESENDING");

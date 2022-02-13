@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description 
 
 est_spd = max(0, sent_pos-last_sent_pos)/(current_time/1000-last_time);
 last_time = current_time/1000;

@@ -1,5 +1,4 @@
 /// @description Detect if in chat screen
-// You can write your code in this editor
 
 if(!in_chat) {
 	instance_deactivate_object(id);
