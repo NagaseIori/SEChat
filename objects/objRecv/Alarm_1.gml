@@ -1,5 +1,4 @@
 /// @description Health Pack
-// You can write your code in this editor
 var _sock = available_socket();
 if(_sock>=0 && h_last_pos == recv_pos) {
 	socket_file_prog(_sock, file_id, recv_pos, "resend");
