@@ -28,6 +28,9 @@
 **FMODGMS by mstop4**
 https://github.com/mstop4/FMODGMS
 
+**Scribble by JujuAdams**
+https://github.com/JujuAdams/Scribble
+
 **Default background image comes from イコモチ's excellent work: *シオとミツ***
 
 Artwork page: https://www.pixiv.net/artworks/82932882
