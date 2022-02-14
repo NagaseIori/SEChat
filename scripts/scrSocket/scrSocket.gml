@@ -104,7 +104,7 @@ function socket_msg_read(_buffer, _size) {
 			buffer_save(temp_buffer, dir);
 			buffer_delete(temp_buffer);
 			var _spr = sprite_add(dir, 1, 0, 0, 0, 0);
-			chat_img(_map[? "name"]+":", _spr);
+			chat_img("[b]"+_map[? "name"]+":[/b]", _spr);
 			break;
 		case "fileprog":
 			if(!ds_map_exists(global.m_file, _map[? "fileid"])) break;

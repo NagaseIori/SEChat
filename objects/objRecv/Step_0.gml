@@ -25,7 +25,7 @@ if(recv_pos == recv_siz) {
 		case ".png":
 		case ".jfif":
 			var _spr = sprite_add(dir, 1, 0, 0, 0, 0);
-			chat_img(sender_name+":", _spr);
+			chat_img("[b]"+sender_name+":[/b]", _spr);
 			break;
 		case ".mp3":
 		case ".ogg":

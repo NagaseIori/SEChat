@@ -2,7 +2,6 @@
 // You can write your code in this editor
 
 surface_set_target(surf);
-draw_set_font(fZpix14);
 draw_set_alpha(n_alpha)
 
 // draw rectangle input bar

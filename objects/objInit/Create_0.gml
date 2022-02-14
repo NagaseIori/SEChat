@@ -1,6 +1,7 @@
 
 #macro STD_FPS 120
-#macro CN_FONT "fZpix14"
+#macro CN_FONT "fSYH14"
+#macro CN_FONT_BOLD "fSYH14b"
 
 room_speed = STD_FPS;
 global.m_bar = ds_map_create();
@@ -26,7 +27,7 @@ global.img_lines = 10;
 
 load_settings();
 
-window_set_caption("SEChat Alpha v220213 SNAPSHOT");
+window_set_caption("SEChat Alpha v220214");
 
 // Create Downloads Directory
 if(!directory_exists(program_directory + "Downloads"))
@@ -57,6 +58,7 @@ else {
 
 // Font init
 scribble_font_set_default(CN_FONT);
+scribble_font_set_style_family(CN_FONT, CN_FONT_BOLD, CN_FONT_BOLD, CN_FONT_BOLD);
 
 room_goto(Room1);
 

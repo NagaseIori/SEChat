@@ -22,7 +22,7 @@ draw_clear_alpha(c_black, 0);
 draw_set_color(global.fr_col);
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle);
-draw_set_font(fZpix14);
+draw_set_font(asset_get_index(CN_FONT));
 draw_set_alpha(1.0);
 
 // Sound Name Draw

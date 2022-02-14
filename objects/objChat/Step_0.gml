@@ -17,7 +17,7 @@ if(file_dnd_filelist != "") {
 			case ".jpeg":
 			case ".jfif":
 				var _spr = sprite_add(nfile, 1, 0, 0, 0, 0);
-				chat_img(global.user_name+":", _spr);
+				chat_img("[b]" + global.user_name+":[/b]", _spr);
 				
 				if(_sock>=0)
 					socket_img(nfile, _sock);
@@ -67,7 +67,7 @@ if(global.Focusing == 0) {
 	
 	if(keyboard_check_pressed(vk_enter)) {
 		if(msg_now!="") {
-			chat_msg(global.user_name + ": " + msg_now, sha1_string_unicode(msg_now));
+			chat_msg("[b]"+ global.user_name + ":[/b] " + msg_now, sha1_string_unicode(msg_now));
 			
 			if(_sock>=0)
 				socket_msg(msg_now, _sock);
@@ -82,6 +82,7 @@ if(global.Focusing == 0) {
 
 surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
+draw_set_font(asset_get_index(CN_FONT));
 
 var i = max(tot_line-screen_lines-below, 0), nsep = sep, mi = i+min(tot_line, screen_lines);
 var j = 14-nsep*(i-floor(i));
