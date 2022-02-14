@@ -21,7 +21,7 @@ else {
 
 	client_sock = network_create_socket(network_socket_tcp);
 	if(network_connect(client_sock, ip, port)<0) {
-		chat_msg("System: [c_red]服务器连接超时。请检查地址，端口，防火墙设置后重试。[/c]");
+		chat_msg("System: [c_red]服务器"+string(ip)+":"+string(port)+"连接超时。请检查地址，端口，防火墙设置后重试。[/c]");
 		instance_destroy();
 	}
 	else {
