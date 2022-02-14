@@ -20,7 +20,7 @@ function rsa_check() {
 
 ///@desc Use RSA to decrypt buffer.
 function rsa_decrypt(_buff){
-	var _exedir = working_directory + "openssl_x86\\bin\\openssl.exe";
+	var _exedir = "openssl_x86\\bin\\openssl.exe";
 	var _input = working_directory + "temp1";
 	var _output = working_directory + "temp_res1";
 	var _key = working_directory + "key.pem";
@@ -31,13 +31,9 @@ function rsa_decrypt(_buff){
 		return -1;
 	}
 	
-	// openssl rsautl -decrypt -in input.file -inkey key.pem -out output.file
-	 //show_debug_message(add_quote(_exedir) + "rsautl -decrypt -in "+
-		// 			add_quote(_input) + "-inkey " + add_quote(_key) + "-out " +
-		// 			add_quote(_output));
-	execute_program(add_quote(_exedir) + "rsautl -decrypt -in "+
+	execute_program(_exedir, "rsautl -decrypt -in "+
 					add_quote(_input) + "-inkey " + add_quote(_key) + "-out " +
-					add_quote(_output), "", true);
+					add_quote(_output), true);
 	
 	if(!file_exists(_output)) {
 		show_error("System: RSA DECRYPTION FAILED."+string(buffer_get_size(_buff)), true);
@@ -52,11 +48,10 @@ function rsa_decrypt(_buff){
 
 ///@desc Use RSA to encrypt buffer.
 function rsa_encrypt(_buff, _pubfile){
-	var _exedir = working_directory + "openssl_x86\\bin\\openssl.exe";
+	var _exedir = "openssl_x86\\bin\\openssl.exe";
 	var _input = working_directory + "temp1";
 	var _output = working_directory + "temp_res1";
 	var _pubkey = working_directory + _pubfile;
-	//var _ppubkey = add_pref(_pubkey);
 	buffer_save(_buff, add_pref(_input));
 	
 	if(!file_exists(_pubkey)) {
@@ -64,12 +59,9 @@ function rsa_encrypt(_buff, _pubfile){
 		return -1;
 	}
 	
-	 show_debug_message(add_quote(_exedir) + "rsautl -encrypt -in "+
+	execute_program(_exedir,"rsautl -encrypt -in "+
 					add_quote(_input) + "-inkey " + add_quote(_pubkey) + "-pubin -out " +
-					add_quote(_output));
-	execute_program(add_quote(_exedir) + "rsautl -encrypt -in "+
-					add_quote(_input) + "-inkey " + add_quote(_pubkey) + "-pubin -out " +
-					add_quote(_output), "", true);
+					add_quote(_output), true);
 	
 	if(!file_exists(_output)) {
 		show_error("System: RSA ENCRYPTION FAILED.", true);
