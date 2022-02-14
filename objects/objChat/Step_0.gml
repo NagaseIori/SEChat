@@ -157,6 +157,7 @@ while(i<mi) {
 				}
 				else {
 					_text = msg_line[i]+" 文件 "+file_line[i]+" 发送完毕。";
+					draw_text_scribble(0, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
 					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
 				}

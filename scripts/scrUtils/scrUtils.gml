@@ -178,6 +178,7 @@ function compress_sprite(_spr, _scale){
 	_h = ceil(_h*_scale);
 	
 	var _surf = surface_create(_w, _h);
+	draw_clear_alpha(c_black, 0);
 	draw_reset();
 	surface_set_target(_surf);
 	better_scaling_draw_sprite(_spr, 0, 0, 0, _scale, _scale, 0, c_white, 1, 1);

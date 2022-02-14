@@ -25,7 +25,7 @@ else {
 		instance_destroy();
 	}
 	else {
-		chat_msg("System: [c_green]已连接服务器。(IP: "+ip+")[/c]");
+		chat_msg("System: [c_green]已连接服务器。[/c](IP: "+ip+")");
 		socket_key(client_sock);
 	}
 }
