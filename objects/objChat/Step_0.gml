@@ -17,7 +17,7 @@ if(file_dnd_filelist != "") {
 			case ".jpeg":
 			case ".jfif":
 				var _spr = sprite_add(nfile, 1, 0, 0, 0, 0);
-				chat_img("[b]" + global.user_name+":[/b]", _spr);
+				chat_img(global.user_name, _spr);
 				
 				if(_sock>=0)
 					socket_img(nfile, _sock);
@@ -32,13 +32,13 @@ if(file_dnd_filelist != "") {
 			case ".s3m":
 				if(_sock>=0)
 					send_file(_sock, nfile);
-				chat_music(global.user_name+":", nfile, false);
+				chat_music(global.user_name, nfile, false);
 				break;
 			default:
 				if(_sock>=0)
 					send_file(_sock, nfile);
 				else
-					chat_msg("System: 未连接服务器或客户端，无法发送文件。");
+					chat_msg("未连接服务器或客户端，无法发送文件。", "System");
 				break;
 		}
 	}
@@ -67,7 +67,7 @@ if(global.Focusing == 0) {
 	
 	if(keyboard_check_pressed(vk_enter)) {
 		if(msg_now!="") {
-			chat_msg("[b]"+ global.user_name + ":[/b] " + msg_now, sha1_string_unicode(msg_now));
+			chat_msg(msg_now, global.user_name);
 			
 			if(_sock>=0)
 				socket_msg(msg_now, _sock);
@@ -77,47 +77,59 @@ if(global.Focusing == 0) {
 		}
 	}
 	
-	
 }
 
 surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
 draw_set_font(asset_get_index(CN_FONT));
 
-var i = max(tot_line-screen_lines-below, 0), nsep = sep, mi = i+min(tot_line, screen_lines);
+var i = max(tot_line-screen_lines-below, 0), nsep = sep, mi = min(tot_line, i+screen_lines+1);
 var j = 14-nsep*(i-floor(i));
 i = floor(i);
 type_line[tot_line] = undefined;
 
-draw_set_halign(fa_left);
+// Resize the array to prevent errors.
+if(array_length(sender_line)<mi)
+	array_resize(sender_line, mi+10);
+mid_div_aim = mid_div_org;
+for(var ii=i; ii<mi; ii++) if(is_string(sender_line[ii])) {
+	mid_div_aim = max(mid_div_aim,
+		scribble("[b]" + sender_line[ii] + "[/b]").get_width() + mid_blk);
+}
+mid_div = lerp(mid_div, mid_div_aim, 0.1);
+
 draw_set_valign(fa_middle);
 while(i<mi) {
+	draw_set_halign(fa_right);
+	if(is_string(sender_line[i]))
+		draw_text_scribble(mid_div-mid_blk/2, j, "[b]" + sender_line[i] + "[/b]");
+	
+	draw_set_halign(fa_left);
 	var _text = "";
+	var _msgx = mid_div+mid_blk/2;
 	switch(type_line[i]) {
 		case "text":
-			_text = show_hash ? hash_line[i] : msg_line[i];
-			draw_text_scribble(0, j, _text);
+			_text = msg_line[i];
+			draw_text_scribble(_msgx, j, _text);
 			j+=nsep;
 			i++;
 			break;
 		case "image":
 			_text = msg_line[i];
-			draw_text_scribble(0, j, _text);
-			j+=nsep;
-			draw_sprite(spr_line[i], 0, 0, j);
+			draw_text_scribble(_msgx, j-nsep/4, _text);
+			draw_sprite(spr_line[i], 0, _msgx, j);
 			j+=nsep*num_line[i];
-			i+=num_line[i]+1;
+			i+=num_line[i];
 			break;
 		case "music":
 			var _inst = spr_line[i];
 			_text = msg_line[i];
-			draw_text_scribble(0, j, _text);
-			j+=nsep;
-			_inst.x = x;
-			_inst.y = j+y;
+			draw_text_scribble(_msgx, j, _text);
+			_inst.x = x+_msgx;
+			_inst.y = j+y-nsep/4;
 			_inst.in_chat = true;
 			instance_activate_object(_inst);
-			j+=nsep*(num_line[i]-1);
+			j+=nsep*num_line[i];
 			i+=num_line[i];
 			break;
 		case "file":
@@ -130,18 +142,18 @@ while(i<mi) {
 					var _spd = " (SPD. "+string(_inst.est_spd/1024/1024)+"MB/s)";
 					var _siz = " (SIZ. "+string(_inst.recv_pos/1024/1024)+"/"+string(_inst.recv_siz/1024/1024)+"MB)";
 					_text = msg_line[i]+" 接收文件 "+file_line[i]+_spd+_siz;
-					draw_text_scribble(0, j, _text);
+					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(_inst.recv_pos/_inst.recv_siz, _bar_length));
 					draw_set_alpha(0.6);
-					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
 					draw_set_alpha(1.0);
-					draw_rectangle(0, k, _bar_length*_inst.recv_pos/_inst.recv_siz, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _bar_length*_inst.recv_pos/_inst.recv_siz, k+_bar_height, false);
 				}
 				else {
 					_text = msg_line[i]+" 文件 "+file_line[i]+" 接收完毕。"
-					draw_text_scribble(0, j, _text);
+					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
-					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
 				}
 			}
 			else if(num_line[i]=="sent") {
@@ -149,18 +161,18 @@ while(i<mi) {
 					var _spd = " (SPD. "+string(_inst.est_spd/1024/1024)+"MB/s)";
 					var _siz = " (SIZ. "+string(_inst.sent_pos/1024/1024)+"/"+string(_inst.buff_siz/1024/1024)+"MB)";
 					_text = msg_line[i]+" 发送文件 "+file_line[i]+_spd+_siz;
-					draw_text_scribble(0, j, _text);
+					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(_inst.sent_pos/_inst.buff_siz, _bar_length));
 					draw_set_alpha(0.6);
-					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
 					draw_set_alpha(1.0);
-					draw_rectangle(0, k, _bar_length*_inst.sent_pos/_inst.buff_siz, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _bar_length*_inst.sent_pos/_inst.buff_siz, k+_bar_height, false);
 				}
 				else {
 					_text = msg_line[i]+" 文件 "+file_line[i]+" 发送完毕。";
-					draw_text_scribble(0, j, _text);
+					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
-					draw_rectangle(0, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
 				}
 			}
 			j+=nsep*2;

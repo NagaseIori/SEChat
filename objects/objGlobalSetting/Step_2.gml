@@ -51,7 +51,7 @@ if(instance_exists(n_barid) && foc != n_barid)
 // Local Port
 n_barid = global.m_bar[? "Local Port"];
 if(instance_exists(n_barid) && foc != n_barid && global.local_port != int64(n_barid.contains)) {
-	chat_msg("System: 本地服务器端口已修改。");
+	chat_msg("本地服务器端口已修改。", "System");
 	global.local_port = int64(n_barid.contains);
 	if(instance_exists(objServer)) {
 		instance_destroy(objServer);

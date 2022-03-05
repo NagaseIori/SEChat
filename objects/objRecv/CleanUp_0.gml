@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 
 if(buffer>=0)
 	bfile_close(buffer);

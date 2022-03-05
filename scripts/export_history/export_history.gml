@@ -14,7 +14,7 @@ function export_history(){
 	if(_filename == "") return;
 	var _file = file_text_open_write("\\\\?\\"+_filename);
 	if(_file<0) {
-		chat_msg("System: 创建文件失败。请更改文件路径重试。");
+		chat_msg("创建文件失败。请更改文件路径重试。", "System");
 		return;
 	}
 	
@@ -47,5 +47,5 @@ function export_history(){
 	}
 	file_text_close(_file);
 	
-	chat_msg("System: 聊天历史已导出至 " + _filename);
+	chat_msg("聊天历史已导出至 " + _filename, "System");
 }

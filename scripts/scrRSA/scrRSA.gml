@@ -80,7 +80,7 @@ function rsa_encrypt(_buff, _pubfile){
 ///@desc Generate the key for RSA encryption.
 function rsa_generate_key(_bit) {
 	if(available_socket()>=0) {
-		chat_msg("System: [Error] 未断开连接，无法更新RSA密钥。");
+		chat_msg("[Error] 未断开连接，无法更新RSA密钥。", "System");
 		return;
 	}
 	// var _exedir = working_directory + "openssl_x86\\bin\\openssl.exe";
@@ -90,7 +90,7 @@ function rsa_generate_key(_bit) {
 	execute_program(_exedir, "genrsa -out \""+_output+"\" "+string(_bit), true);
 	execute_program(_exedir, "rsa -in \""+_output+"\" -pubout -out \""+ _puboutput + "\"", true);
 	if(file_exists(_output) && file_exists(_puboutput))
-		chat_msg("System: RSA 密钥已生成。");
+		chat_msg("RSA 密钥已生成。", "System");
 	else
-		chat_msg("System: RSA 密钥生成失败。");
+		chat_msg("RSA 密钥生成失败。", "System");
 }

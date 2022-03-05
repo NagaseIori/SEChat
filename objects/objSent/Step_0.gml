@@ -1,7 +1,7 @@
 /// @description 
 
 if(available_socket()<0) {
-	chat_msg("System: 连接中断。文件传输终止。");
+	chat_msg("连接中断。文件传输终止。", "System");
 	instance_destroy();
 	return;
 }

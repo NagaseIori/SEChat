@@ -9,7 +9,7 @@ function send_file(_sock, _filename){
 	inst.file_name = filename_name(_filename);
 	inst.buff = bfile_open_read(_filename);
 	if(inst.buff<0) {
-		chat_msg("System: 无法打开该文件。");
+		chat_msg("无法打开该文件。", "System");
 		instance_destroy(inst);
 		return 0;
 	}
@@ -19,7 +19,7 @@ function send_file(_sock, _filename){
 	inst.file_id = md5_file(_filename);
 	global.m_file[? inst.file_id] = inst;
 	socket_file_requ(_sock, inst.file_id, inst.buff_siz, inst.file_name);
-	chat_file(global.user_name+":", inst, "sent");
+	chat_file(global.user_name, inst, "sent");
 }
 
 ///@description Receieve a file.
@@ -31,7 +31,7 @@ function recv_file(_fileid, _size, _filename, _username){
 	inst.file_id = _fileid;
 	inst.sender_name = _username;
 	global.m_file_recv[? _fileid] = inst;
-	chat_file(_username+":", inst, "recv");
+	chat_file(_username, inst, "recv");
 	
 	var dir = program_directory + "Downloads\\" + _filename;
 	if(file_exists(dir) && md5_file(dir)==_fileid) {

@@ -5,60 +5,55 @@
 */
 
 ///@description An image message.
-function chat_img(_str, _spr){
-	var _hash;
-	_hash = "<NULL>";
-	objChat.msg_line[objChat.tot_line] = _str;
-	objChat.hash_line[objChat.tot_line] = _hash;
-	objChat.type_line[objChat.tot_line] = "image";
-	
-	var _nsep = objChat.sep;
-	var _gscale = min(_nsep*global.img_lines/sprite_get_height(_spr), 1000/sprite_get_width(_spr), 1.0);
-	var _rline = ceil(sprite_get_height(_spr)*_gscale/_nsep)+1;
-	
-	objChat.spr_line[objChat.tot_line] = compress_sprite(_spr, _gscale);
-	objChat.num_line[objChat.tot_line] = _rline;
-	objChat.tot_line += 1+_rline;
-	objChat.aim_below = 0;
-	objChat.below += 1+_rline;
+function chat_img(_snd, _spr){
+	with(objChat) {
+		var _nsep = objChat.sep;
+		var _gscale = min(_nsep*global.img_lines/sprite_get_height(_spr), 1000/sprite_get_width(_spr), 1.0);
+		var _rline = ceil(sprite_get_height(_spr)*_gscale/_nsep)+1;
+		msg_line[tot_line] = "";
+		type_line[tot_line] = "image";
+		spr_line[tot_line] = compress_sprite(_spr, _gscale);
+		sender_line[tot_line] = _snd;
+		num_line[tot_line] = _rline;
+		tot_line += _rline;
+		aim_below = 0;
+		below += _rline;
+	}
 	audio_play_sound(sndText, 1, 0);
 }
 
 ///@description A text message.
-function chat_msg(_str){
+function chat_msg(_str, _snd=""){
 	if(!instance_exists(objChat)) return;
-	var _hash;
-	if(argument_count==2)
-		_hash = argument[1];
-	else
-		_hash = "<NULL>";
-	objChat.msg_line[objChat.tot_line] = _str;
-	objChat.hash_line[objChat.tot_line] = _hash;
-	objChat.type_line[objChat.tot_line] = "text";
-	objChat.spr_line[objChat.tot_line] = undefined;
-	objChat.tot_line++;
-	objChat.below += 1;
-	objChat.aim_below = 0;
+	with(objChat) {
+		msg_line[tot_line] = _str;
+		type_line[tot_line] = "text";
+		sender_line[tot_line] = _snd;
+		tot_line ++;
+		below += 1;
+		aim_below = 0;
+	}
 	audio_play_sound(sndText, 1, 0);
 }
 
 ///@description A file transfer message.
-function chat_file(_str, _id, _type){
-	var _hash = "<NULL>";
-	objChat.msg_line[objChat.tot_line] = _str;
-	objChat.hash_line[objChat.tot_line] = _hash;
-	objChat.type_line[objChat.tot_line] = "file";
-	objChat.spr_line[objChat.tot_line] = _id;
-	objChat.num_line[objChat.tot_line] = _type; // "sent" or "recv"
-	objChat.file_line[objChat.tot_line] = shorten_name(_id.file_name, 20);
-	objChat.tot_line+=2;
-	objChat.aim_below = 0;
-	objChat.below += 2;
+function chat_file(_snd, _id, _type){
+	with(objChat) {
+		msg_line[tot_line] = "";
+		type_line[tot_line] = "file";
+		spr_line[tot_line] = _id;
+		sender_line[tot_line] = _snd;
+		num_line[tot_line] = _type;
+		file_line[tot_line] = shorten_name(_id.file_name, 20);
+		tot_line += 2;
+		aim_below = 0;
+		below += 2;
+	}
 	audio_play_sound(sndText, 1, 0);
 }
 
 ///@description A music player message.
-function chat_music(_str, _file, _autoplay){
+function chat_music(_snd, _file, _autoplay){
 	if(global.fmod_state == 0) return;
 	var _inst = instance_create_depth(0, 0, -1, objMusicPlayer);
 	_inst.sound_index = FMODGMS_Snd_LoadStream(_file);
@@ -73,12 +68,22 @@ function chat_music(_str, _file, _autoplay){
 		FMODGMS_Snd_PlaySound(_inst.sound_index, global.fmod_channel);
 	}
 	var _rline = ceil(150/objChat.sep)+1;
-	objChat.msg_line[objChat.tot_line] = _str;
-	objChat.type_line[objChat.tot_line] = "music";
-	objChat.spr_line[objChat.tot_line] = _inst;
-	objChat.num_line[objChat.tot_line] = _rline;
-	objChat.tot_line+=_rline;
-	objChat.aim_below = 0;
-	objChat.below += _rline;
+	with(objChat) {
+		msg_line[tot_line] = "";
+		type_line[tot_line] = "music";
+		sender_line[tot_line] = _snd;
+		num_line[tot_line] = _rline;
+		spr_line[tot_line] = _inst;
+		tot_line += _rline;
+		aim_below = 0;
+		below += _rline;
+	}
+	// objChat.msg_line[objChat.tot_line] = _str;
+	// objChat.type_line[objChat.tot_line] = "music";
+	// objChat.spr_line[objChat.tot_line] = _inst;
+	// objChat.num_line[objChat.tot_line] = _rline;
+	// objChat.tot_line+=_rline;
+	// objChat.aim_below = 0;
+	// objChat.below += _rline;
 	audio_play_sound(sndText, 1, 0);
 }

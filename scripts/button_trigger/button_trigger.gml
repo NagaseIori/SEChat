@@ -6,16 +6,16 @@ function button_trigger(_id){
 			if(!instance_exists(objClient))
 				instance_create_depth(0, 0, 0, objClient);
 			else
-				chat_msg("System: 服务器已经连接！");
+				chat_msg("服务器已经连接！", "System");
 			break;
 		case "disconnect_server":
 			if(instance_exists(objClient)) {
 				global.cli_UUID = "";
-				chat_msg("System: 服务器已断开。(IP: "+objClient.ip+")");
+				chat_msg("服务器已断开。(IP: "+objClient.ip+")", "System");
 				instance_destroy(objClient);
 			}
 			else
-				chat_msg("System: 未连接服务器。");
+				chat_msg("未连接服务器。", "System");
 			break;
 		case "switch_hash":
 			objChat.show_hash^=1;
@@ -36,11 +36,11 @@ function button_trigger(_id){
 			if(!instance_exists(objServer))
 				instance_create_depth(0, 0, 0, objServer);
 			else
-				chat_msg("System: 服务器已经运行！");
+				chat_msg("服务器已经运行！", "System");
 			break;
 		case "destroy_server":
 			if(!instance_exists(objServer))
-				chat_msg("System: 服务器未运行。");
+				chat_msg("服务器未运行。", "System");
 			else
 				instance_destroy(objServer);
 			break;

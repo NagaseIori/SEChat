@@ -42,7 +42,7 @@ network_set_config(network_config_connect_timeout, 3000);
 
 // FMODGMS Init
 if(FMODGMS_Util_Handshake() != "FMODGMS is working.") {
-	chat_msg("System: [Error] FMODGMS 没有被正确加载。部分功能无法正常运作。");
+	chat_msg("[Error] FMODGMS 没有被正确加载。部分功能无法正常运作。", "System");
 	global.fmod_state = 0;
 }
 else {

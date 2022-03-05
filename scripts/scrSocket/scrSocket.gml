@@ -96,7 +96,7 @@ function socket_msg_read(_buffer, _size) {
 	
 	switch(_map[? "type"]) {
 		case "text":
-			chat_msg(_map[? "name"]+": "+_map[? "text"], _map[? "hash"]);
+			chat_msg(_map[? "text"], _map[? "name"]);
 			break;
 		case "image":
 			var temp_buffer = buffer_base64_decode(_map[? "file"]);
@@ -104,7 +104,7 @@ function socket_msg_read(_buffer, _size) {
 			buffer_save(temp_buffer, dir);
 			buffer_delete(temp_buffer);
 			var _spr = sprite_add(dir, 1, 0, 0, 0, 0);
-			chat_img("[b]"+_map[? "name"]+":[/b]", _spr);
+			chat_img(_map[? "name"], _spr);
 			break;
 		case "fileprog":
 			if(!ds_map_exists(global.m_file, _map[? "fileid"])) break;
@@ -126,7 +126,7 @@ function socket_msg_read(_buffer, _size) {
 			socket_upd_key(available_socket());
 			break;
 		case "disconnect":
-			chat_msg("System: 服务器已断开。(IP: "+objClient.ip+")");
+			chat_msg("服务器已断开。(IP: "+objClient.ip+")", "System");
 			global.cli_UUID = "";
 			instance_destroy(objClient);
 			break;
@@ -243,7 +243,7 @@ function socket_upd_key(_sock){
 ///@description Send the defined GMS2 map package as buffer through socket.
 function socket_map(_sock, temp_map, _rc4){
 	if(!rsa_check()) {
-		chat_msg("System: 未检测到 RSA 密钥文件。请断开连接后重新生成密钥。");
+		chat_msg("未检测到 RSA 密钥文件。请断开连接后重新生成密钥。", "System");
 		instance_destroy(objServer);
 		instance_destroy(objClient);
 		return;

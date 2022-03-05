@@ -5,4 +5,4 @@ if(global.client!=undefined) {
 }
 
 network_destroy(server_sock);
-chat_msg("System: 服务器已停止运行。");
+chat_msg("服务器已停止运行。", "System");

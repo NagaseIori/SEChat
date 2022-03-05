@@ -8,6 +8,7 @@ type_line[0] = undefined;
 spr_line[0] = undefined;
 num_line[0] = undefined;
 file_line[0] = undefined;
+sender_line[0] = undefined;
 
 aim_below = 0;
 lerp_spd = 0.1;
@@ -29,6 +30,10 @@ msg_now = "";
 max_length = 60;
 
 surf = surface_create(width, height);
+mid_div = 100; // division point between sender and msg
+mid_div_org = mid_div;
+mid_div_aim = mid_div; // adjustable
+mid_blk = 10; // blank between sender and msg
 
 // DND INIT
 // set the dnd destination window to game window...

@@ -1,8 +1,7 @@
-/// @description Insert description here
 
 var _sock = available_socket();
 if(_sock<0) {
-	chat_msg("System: 连接中断。文件传输终止。");
+	chat_msg("连接中断。文件传输终止。", "System");
 	instance_destroy();
 	return;
 }
@@ -25,7 +24,7 @@ if(recv_pos == recv_siz) {
 		case ".png":
 		case ".jfif":
 			var _spr = sprite_add(dir, 1, 0, 0, 0, 0);
-			chat_img("[b]"+sender_name+":[/b]", _spr);
+			chat_img(sender_name, _spr);
 			break;
 		case ".mp3":
 		case ".ogg":
@@ -34,7 +33,7 @@ if(recv_pos == recv_siz) {
 		case ".midi":
 		case ".mod":
 		case ".s3m":
-			chat_music(global.user_name+":", dir, true);
+			chat_music(global.user_name, dir, true);
 			break;
 	}
 	
@@ -43,6 +42,6 @@ if(recv_pos == recv_siz) {
 }
 
 else if(recv_pos > recv_siz) {
-	chat_msg("System: FUCK");
+	chat_msg("FUCK");
 	instance_destroy();
 }

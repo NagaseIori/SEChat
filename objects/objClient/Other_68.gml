@@ -3,7 +3,7 @@
 if(async_load[? "id"]==client_sock) {
 	switch(async_load[? "type"]) {
 		case network_type_disconnect:
-			chat_msg("System: 服务器已断开。(IP: "+ip+")");
+			chat_msg("服务器已断开。(IP: "+ip+")", "System");
 			global.cli_UUID = "";
 			instance_destroy();
 			break;
