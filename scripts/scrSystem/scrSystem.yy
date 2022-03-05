@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "load_settings",
+  "name": "scrSystem",
   "tags": [],
   "resourceType": "GMScript",
 }
