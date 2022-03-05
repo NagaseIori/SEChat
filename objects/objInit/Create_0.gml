@@ -27,7 +27,7 @@ global.img_lines = 10;
 
 load_settings();
 
-window_set_caption("SEChat Alpha v220214");
+window_set_caption("SEChat Alpha v220305");
 
 // Create Downloads Directory
 if(!directory_exists(program_directory + "Downloads"))
