@@ -145,15 +145,15 @@ while(i<mi) {
 					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(_inst.recv_pos/_inst.recv_siz, _bar_length));
 					draw_set_alpha(0.6);
-					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _msgx + _bar_length, k+_bar_height, false);
 					draw_set_alpha(1.0);
-					draw_rectangle(_msgx, k, _bar_length*_inst.recv_pos/_inst.recv_siz, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _msgx + _bar_length*_inst.recv_pos/_inst.recv_siz, k+_bar_height, false);
 				}
 				else {
 					_text = msg_line[i]+" 文件 "+file_line[i]+" 接收完毕。"
 					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
-					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _msgx + _bar_length, k+_bar_height, false);
 				}
 			}
 			else if(num_line[i]=="sent") {
@@ -164,15 +164,15 @@ while(i<mi) {
 					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(_inst.sent_pos/_inst.buff_siz, _bar_length));
 					draw_set_alpha(0.6);
-					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _msgx + _bar_length, k+_bar_height, false);
 					draw_set_alpha(1.0);
-					draw_rectangle(_msgx, k, _bar_length*_inst.sent_pos/_inst.buff_siz, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _msgx + _bar_length*_inst.sent_pos/_inst.buff_siz, k+_bar_height, false);
 				}
 				else {
 					_text = msg_line[i]+" 文件 "+file_line[i]+" 发送完毕。";
 					draw_text_scribble(_msgx, j, _text);
 					//draw_text(0, j+nsep, ascii_prog(1.0, _bar_length));
-					draw_rectangle(_msgx, k, _bar_length, k+_bar_height, false);
+					draw_rectangle(_msgx, k, _msgx + _bar_length, k+_bar_height, false);
 				}
 			}
 			j+=nsep*2;
