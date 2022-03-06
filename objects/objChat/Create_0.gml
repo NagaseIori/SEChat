@@ -9,6 +9,8 @@ spr_line[0] = undefined;
 num_line[0] = undefined;
 file_line[0] = undefined;
 sender_line[0] = undefined;
+gif_delay_line[0] = undefined;
+gif_index_line[0] = undefined;
 
 aim_below = 0;
 lerp_spd = 0.1;

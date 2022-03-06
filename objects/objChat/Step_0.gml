@@ -23,6 +23,13 @@ if(file_dnd_filelist != "") {
 					socket_img(nfile, _sock);
 				
 				break;
+			case ".gif":
+				chat_msg("抱歉，但GIF文件暂不支持进行播放。");
+				break;
+				var _delayarr;
+				var _spr = sprite_add_gif(nfile, 0, 0, _delayarr);
+				
+				break;
 			case ".mp3":
 			case ".ogg":
 			case ".flac":
