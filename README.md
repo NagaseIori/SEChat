@@ -1,7 +1,5 @@
 # SEChat
 
-![SEChat_logo](https://user-images.githubusercontent.com/31349569/111941576-4a754580-8b0c-11eb-83a4-4d0c2c37cd79.png)
-
 一款用 GMS2 编写的端到端加密聊天工具。即时聊天、文件、图片与音乐播放。
 
 <!--more-->
