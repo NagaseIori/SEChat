@@ -5,7 +5,7 @@
 
 room_speed = STD_FPS;
 global.m_bar = ds_map_create();
-global.user_name = "NagaseIori";
+global.user_name = "你的名字是...";
 global.local_port = 1234;
 global.client = undefined;
 global.m_file = ds_map_create();
@@ -17,10 +17,10 @@ global.cli_UUID = "";
 global.serv_port = "";
 global.serv_addr = "";
 global.wheel_speed = 5;
-global.bg_col = $000000
-global.fr_col = $000000
-global.bg_radius = 10;
-global.bg_type = 1;
+global.bg_col = $000000		// Background Color
+global.fr_col = $000000		// Front Color
+global.bg_radius = 10;		// Bg Blur Radius
+global.bg_type = 1;			// Bg type: 0 color 1 image
 global.bg_img_file = "background.png";
 global.fmod_state = 1;
 global.img_lines = 10;
