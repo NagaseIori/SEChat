@@ -89,6 +89,7 @@ if(global.Focusing == 0) {
 surface_set_target(surf);
 draw_clear_alpha(c_black, 0);
 draw_set_font(asset_get_index(CN_FONT));
+draw_set_color(global.fr_col);
 
 var i = max(tot_line-screen_lines-below, 0), nsep = sep, mi = min(tot_line, i+screen_lines+1);
 var j = 14-nsep*(i-floor(i));
