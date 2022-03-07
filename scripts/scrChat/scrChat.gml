@@ -44,7 +44,10 @@ function chat_file(_snd, _id, _type){
 		spr_line[tot_line] = _id;
 		sender_line[tot_line] = _snd;
 		num_line[tot_line] = _type;
-		file_line[tot_line] = shorten_name(_id.file_name, 20);
+		file_line[tot_line] = string_replace_all(
+								shorten_name(_id.file_name, 40),
+								"[",
+								"[[");
 		tot_line += 2;
 		aim_below = 0;
 		below += 2;
