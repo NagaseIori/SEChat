@@ -3,7 +3,7 @@
 #macro CN_FONT "fSYH14"
 #macro CN_FONT_BOLD "fSYH14b"
 
-room_speed = STD_FPS;
+room_speed = display_get_frequency();
 global.m_bar = ds_map_create();
 global.user_name = "你的名字是...";
 global.local_port = 1234;
