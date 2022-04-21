@@ -10,7 +10,8 @@ with(all) {
 }
 
 if(nw != disize_w || nh != disize_h) {
-	surface_resize(application_surface, nw, nh);
+	if(surface_exists(application_surface))
+		surface_resize(application_surface, nw, nh);
 	// view_set_wport(0, nw);
 	// view_set_hport(0, nh);
 	camera_set_view_size(view_camera[0], nw, nh);
