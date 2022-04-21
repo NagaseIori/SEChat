@@ -5,7 +5,7 @@ var vy = camera_get_view_y(view_camera[0]);
 switch(global.bg_type) {
 	case 0:
 		draw_set_color(global.bg_col);
-		draw_rectangle(0, 0, absolute_pos_x(1), absolute_pos_y(1), false);
+		draw_rectangle(vx, vy, vx+absolute_pos_x(1), vy+absolute_pos_y(1), false);
 		break;
 	case 1:
 		if(!sprite_exists(image_spr)) {
