@@ -2,6 +2,13 @@
 var nw = window_get_width();
 var nh = window_get_height();
 
+with(all) {
+	if(!variable_instance_exists(id, "rel_x")) {
+		rel_x = x/nw;
+		rel_y = y/nh;
+	}
+}
+
 if(nw != disize_w || nh != disize_h) {
 	surface_resize(application_surface, nw, nh);
 	// view_set_wport(0, nw);

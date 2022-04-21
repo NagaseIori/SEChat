@@ -53,28 +53,25 @@ function load_settings(){
 function clear_history() {
 	var i;
 	fmod_stopchan();
-	for(i=0; i<objChat.tot_line;) {
+	for(i=0; i<objChat.tot_line; i++) {
 		switch(objChat.type_line[i]) {
 			case "image":
 				sprite_delete(objChat.spr_line[i]);
 				objChat.type_line[i] = undefined;
-				i+=objChat.num_line[i]+1;
 				break;
 			case "text":
 				objChat.type_line[i] = undefined;
-				i++;
 				break;
 			case "file":
 				objChat.type_line[i] = undefined;
-				i+=2;
 				break;
 			case "music":
 				instance_destroy(objChat.spr_line[i]);
 				objChat.type_line[i] = undefined;
-				i+=objChat.num_line[i];
 				break;
 			default:
 				objChat.type_line[i] = undefined;
+				
 				break;
 		}
 	}
