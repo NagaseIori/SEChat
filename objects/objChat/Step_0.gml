@@ -55,7 +55,7 @@ if(file_dnd_filelist != "") {
 }
 
 if(!surface_exists(surf))
-	surf=surface_create(width, height);
+	surf = surface_create(absolute_pos_x(width), absolute_pos_y(height));
 
 if(global.Focusing == 0) {
 	

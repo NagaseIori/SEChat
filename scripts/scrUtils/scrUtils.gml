@@ -141,11 +141,10 @@ function mouse_inbound(_x, _y, _width, _height){
 }
 
 function move_camera(_x, _y){
-	objCamera.r_x = camera_get_view_x(view_camera[0]);
-	objCamera.r_y = camera_get_view_y(view_camera[0]);
-	objCamera.time_n = 0;
+	objCamera.r_x = camera_get_view_x(view_camera[0])/window_get_width();
+	objCamera.r_y = camera_get_view_y(view_camera[0])/window_get_height();
 	objCamera.aim_x = _x;
-	objCamera.aim_y = _y;
+	objCamera.aim_y = 0;
 	objCamera.status = 1;
 }
 
@@ -256,4 +255,12 @@ function string_split(_string, _delimiter) {
 	var rw = array_create(rn);
 	for (p = 0; p < rn; p++) rw[p] = rl[|p];
 	return rw;
+}
+
+function absolute_pos_x(_x) {
+	return _x * display_get_gui_width();
+}
+
+function absolute_pos_y(_y) {
+	return _y * display_get_gui_height();
 }

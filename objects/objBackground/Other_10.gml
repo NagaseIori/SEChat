@@ -5,8 +5,11 @@ if(_nspr<0) {
 	global.bg_type = 0;
 	return;
 }
-var _cspr = compress_sprite(_nspr, max(1366/sprite_get_width(_nspr), 768/sprite_get_height(_nspr)));
+var _cspr = compress_sprite(_nspr, max(surf_w/sprite_get_width(_nspr), surf_h/sprite_get_height(_nspr)));
 sprite_delete(_nspr);
+
+if(sprite_exists(image_spr))
+	sprite_delete(image_spr);
 image_spr = _cspr;
 last_radius = 0;
 show_debug_message("Background has changed.");

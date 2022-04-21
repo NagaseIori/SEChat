@@ -158,7 +158,7 @@ function button_trigger(_id){
 			move_camera(0, 0);
 			break;
 		case "settings":
-			move_camera(1366, 0);
+			move_camera(1.0, 0);
 			break;
 		case "export_history":
 			export_history();

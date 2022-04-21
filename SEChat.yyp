@@ -39,6 +39,7 @@
     {"id":{"name":"scribble_anim_wobble","path":"scripts/scribble_anim_wobble/scribble_anim_wobble.yy",},"order":9,},
     {"id":{"name":"scribble_fallback_font","path":"fonts/scribble_fallback_font/scribble_fallback_font.yy",},"order":12,},
     {"id":{"name":"objinsert","path":"objects/objinsert/objinsert.yy",},"order":0,},
+    {"id":{"name":"objResolutionManager","path":"objects/objResolutionManager/objResolutionManager.yy",},"order":18,},
     {"id":{"name":"__scribble_font_add_all_from_project","path":"scripts/__scribble_font_add_all_from_project/__scribble_font_add_all_from_project.yy",},"order":5,},
     {"id":{"name":"UUID_v4","path":"extensions/UUID_v4/UUID_v4.yy",},"order":5,},
     {"id":{"name":"scribble_font_bake_outline_4dir","path":"scripts/scribble_font_bake_outline_4dir/scribble_font_bake_outline_4dir.yy",},"order":0,},

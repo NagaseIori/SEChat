@@ -15,8 +15,14 @@ switch(global.bg_type) {
 		if(global.bg_radius) {
 			if(global.bg_radius != last_radius) {
 				surface_set_target(surf);
+				var uvs = sprite_get_uvs(image_spr, 0);
 				shader_set(shd_gaussian_blur);
-					shader_set_uniform_f(u_size, sprite_get_width(image_spr), sprite_get_height(image_spr), global.bg_radius);
+					shader_set_uniform_f(
+						u_size, 
+						(uvs[2]-uvs[0])/sprite_get_width(image_spr), 
+						(uvs[3]-uvs[1])/sprite_get_height(image_spr), 
+						global.bg_radius);
+					shader_set_uniform_f_array(u_uvs, uvs);
 					draw_sprite(image_spr, 0, 0, 0);
 				shader_reset(); 
 				surface_reset_target();

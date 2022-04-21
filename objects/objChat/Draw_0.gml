@@ -25,6 +25,6 @@ if(global.Focusing == 0) {
 scribble(text)
 .starting_format(CN_FONT, global.fr_col)
 .align(fa_left, fa_top)
-.draw(x, y+650);
+.draw(x, y+absolute_pos_y(650/768));
 
 draw_reset();
