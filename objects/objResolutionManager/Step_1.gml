@@ -9,7 +9,7 @@ with(all) {
 	}
 }
 
-if(nw != disize_w || nh != disize_h) {
+if((nw != disize_w || nh != disize_h) && (nw>0 && nh>0)) {
 	if(surface_exists(application_surface))
 		surface_resize(application_surface, nw, nh);
 	// view_set_wport(0, nw);

@@ -5,8 +5,8 @@ global.Focusing = 0;
 
 cursor = "";
 
-alpha = 0.3;
-n_alpha = 0.3;
+alpha = 0.7;
+n_alpha = 0.7;
 
 timing = 0; // used for caculate steps
 

@@ -6,7 +6,7 @@ if(!surface_exists(surf)) {
 } 
 
 if(global.Focusing == id) {
-	alpha = 0.9;
+	alpha = 1.0;
 	if(mouse_check_button_pressed(mb_right)) {
 		keyboard_string = clipboard_get_text();
 	}
@@ -20,7 +20,7 @@ if(global.Focusing == id) {
 	
 }
 else {
-	alpha = 0.3;
+	alpha = 0.7;
 }
 
 if(abs(n_alpha-alpha)>0.6*6/room_speed) n_alpha += sign(alpha-n_alpha)*0.6*6/room_speed;
